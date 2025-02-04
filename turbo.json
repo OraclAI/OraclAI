@@ -1,0 +1,21 @@
+{
+  "pipeline": {
+    "build": {
+      "dependsOn": ["^build"],
+      "outputs": ["dist/**", ".next/**"]
+    },
+    "dev": {
+      "dependsOn": [],
+      "outputs": [],
+      "cache": false
+    },
+    "start": {
+      "dependsOn": [],
+      "outputs": []
+    },
+    "build:oracl": {
+      "outputs": [".next/**"]
+    },
+    "lint:oracl": {}
+  }
+}
