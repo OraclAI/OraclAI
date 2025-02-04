@@ -26,8 +26,18 @@ An AI-powered blockchain agent that can interact with the Solana blockchain. Bui
 
 This is a monorepo using Turborepo and Yarn workspaces containing:
 
-- `apps/frontend`: Next.js web interface
+- `apps/frontend`: Next.js web interface with real-time updates
+  - Modern React components
+  - Tailwind CSS styling
+  - TypeScript for type safety
 - `apps/backend`: Express.js API server with AI capabilities
+  - RESTful API endpoints
+  - WebSocket support
+  - Comprehensive error handling
+- `packages/solana-agent-kit`: Shared Solana utilities
+  - Blockchain interactions
+  - Transaction management
+  - Account handling
 
 ## Prerequisites
 
@@ -43,7 +53,7 @@ This is a monorepo using Turborepo and Yarn workspaces containing:
 1. Clone the repository:
 
 ```bash
-git clone 
+git clone https://github.com/OraclAI/OraclAI.git
 cd oracl
 ```
 
@@ -58,7 +68,7 @@ yarn install
 For backend (`apps/backend/.env`):
 
 ```
-DEEPSEEK_API_KEY=your_deepseek_api_key
+OPENAI_API_KEY=your_openai_api_key
 PRIVATE_KEY_BASE58=your_wallet_private_key
 HELIUS_API_KEY=your_helius_api_key  # Required for RPC access
 PORT=5000
@@ -101,14 +111,16 @@ Start the development environment:
 yarn dev
 ```
 
-This will start both the backend (port 5000) and frontend (port 3000) in development mode.
+This will start both the backend (port 5000) and frontend (port 3000) in development mode with hot reloading enabled.
 
 ### Available Commands
 
 - `yarn dev` - Start all applications in development mode
-- `yarn build` - Build all applications
+- `yarn build` - Build all applications for production
 - `yarn lint` - Lint all applications
 - `yarn test` - Run test suites (if configured)
+- `yarn clean` - Clean all build artifacts
+- `yarn typecheck` - Run TypeScript type checking
 
 ## Architecture
 
@@ -116,7 +128,12 @@ This will start both the backend (port 5000) and frontend (port 3000) in develop
 oracl/
 ├── apps/
 │   ├── frontend/    # Next.js web interface
+│   │   ├── components/  # Reusable UI components
+│   │   ├── pages/      # Route components
+│   │   └── utils/      # Helper functions
 │   └── backend/     # Express.js + AI server
+│       ├── src/        # Source code
+│       └── tests/      # Test files
 ├── packages/        # Shared packages
 └── turbo.json      # Turborepo configuration
 ```
@@ -133,7 +150,7 @@ oracl/
 
 - Initial project structure inspired by jarrodwatts/onchain-agent
 - Built for the Solana AI Hackathon
-- Powered by DeepSeek's Assistant API
+- Powered by OpenAI's Assistant API
 - Enhanced by Helius RPC services
 
 ## License
